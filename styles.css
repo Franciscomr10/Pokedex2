@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Color de fondo por defecto */
+    color: #ff0000; /* Color de texto por defecto */
+}
+
+header {
+    padding: 20px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.card img {
+    max-width: 100px;
+}
+
+.dark-theme {
+    background-color: #333; /* Cambiar color de fondo en modo oscuro */
+    color: #fff; /* Cambiar color de texto en modo oscuro */
+}
