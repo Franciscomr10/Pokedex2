@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokédex - Lista de Pokémon</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Pokédex</title>
 </head>
+<header>
+  <h1>Pokédex</h1>
+  <nav>  
+      <ul>
+          <li><a href="buscador.html">Atras</a></li>
+          <li>   <button id="cambiar-tema">Cambiar a tema oscuro</button>  <!-- Añadido -->
+          </li>
+      </ul>
+  </nav>
+
+</header>
 <body>
-    <header>
-        <h1>Pokédex</h1>
-        <a></a>
-        <button onclick="toggleTheme()">Cambiar Tema</button>
-        <div class="boton">
 
+    <div id="pokemon-detalle">
+        <div id="pokemon-info">
+            <img id="pokemon-imagen" src="" alt="Imagen del Pokémon">
+            <h2 id="pokemon-nombre"></h2>
+            <p>Número de pokedex: <span id="pokedex-numero"></span></p>
+            <p>Tipo: <span id="tipo"></span></p>
+            <p>Peso: <span id="peso"></span> kg</p>
+            <p>Altura: <span id="altura"></span> m</p>
         </div>
-    </header>
 
-    <div class="container">
-        <button id = "apiButton">API</button>
-        <pre id = "apiData"></pre>
+        <div id="pokemon-estadisticas"></div>
 
-        <p id="base_experience"></p>
-
-        <script src = './descripcion.js'></script>
+        <div id="cadena-evolutiva"></div>
     </div>
 
-    <script src="buscador.js"></script>
+    <script src="descripcion.js"></script>
 </body>
 </html>
