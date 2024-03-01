@@ -1,28 +1,46 @@
-header{
-  padding: 20px;
-  background-color: #ff0000;
+header {
+  background-color: var(--clr-gris);
+  box-shadow: 0 0 2rem -1rem rgba(0, 0, 0, .5);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 40rem;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--clr-negro);
+  font-family: 'Rubik', sans-serif;
+}
+
 /* Estilos para el botón */
 #cambiar-tema {
-  background-color: #350202; 
-  border: none; 
-  color: white; 
-  padding: 15px 32px; 
-  text-align: center; 
-  text-decoration: none; 
-  display: inline-block;
-  font-size: 16px; 
-  margin: 4px 2px; 
-  cursor: pointer; 
-  border-radius: 12px; 
+  padding: .5rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .2s;
+  background-color: var(--clr-negro);
+  color: var(--clr-gris);
 }
 
-
 #cambiar-tema:hover {
-  background-color: #390000; 
+  background-color: var(--clr-gris);
+  color: var(--clr-negro);
+}
+
+/* Estilos para el botón cuando se pasa el ratón por encima */
+#cambiar-tema:hover {
+  background-color: #242424; 
 }
 
 
@@ -140,7 +158,10 @@ body.tema-oscuro #cadena-evolutiva {
   align-items: center;
   margin-right: 10px;
 }
-
+/* Estilo para la sombra del Pokémon actual en la cadena evolutiva */
+.pokemon-actual {
+  text-shadow:  rgba(0, 8, 255, 0.5);
+}
 /* ADAPTACION A OTROS  DISPOSITIVOS */
 @media screen and (max-width: 640px) {
   #cadena-evolutiva { 
@@ -158,6 +179,4 @@ body.tema-oscuro #cadena-evolutiva {
       flex-direction: row;
       flex-wrap: wrap;
   }
-
-
 }
