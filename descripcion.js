@@ -17,62 +17,77 @@ async function obtenerEspecie(id) {
   return datos;
 }
 
+// Diccionario para traducir tipos
+const tipos = {
+  'normal': 'normal',
+  'fighting': 'lucha',
+  'flying': 'volador',
+  'poison': 'veneno',
+  'ground': 'tierra',
+  'rock': 'roca',
+  'bug': 'bicho',
+  'ghost': 'fantasma',
+  'steel': 'acero',
+  'fire': 'fuego',
+  'water': 'agua',
+  'grass': 'planta',
+  'electric': 'eléctrico',
+  'psychic': 'psíquico',
+  'ice': 'hielo',
+  'dragon': 'dragón',
+  'dark': 'siniestro',
+  'fairy': 'hada'
+};
+
 function traducirTipo(tipo) {
-  switch (tipo) {
-    case 'normal': return 'normal';
-    case 'fighting': return 'lucha';
-    case 'flying': return 'volador';
-    case 'poison': return 'veneno';
-    case 'ground': return 'tierra';
-    case 'rock': return 'roca';
-    case 'bug': return 'bicho';
-    case 'ghost': return 'fantasma';
-    case 'steel': return 'acero';
-    case 'fire': return 'fuego';
-    case 'water': return 'agua';
-    case 'grass': return 'planta';
-    case 'electric': return 'eléctrico';
-    case 'psychic': return 'psíquico';
-    case 'ice': return 'hielo';
-    case 'dragon': return 'dragón';
-    case 'dark': return 'siniestro';
-    case 'fairy': return 'hada';
-    default: return tipo;
-  }
+  return tipos[tipo] || tipo;
 }
+
+// Diccionario para traducir estadísticas
+const estadisticas = {
+  'hp': 'Vida',
+  'attack': 'Ataque',
+  'defense': 'Defensa',
+  'special-attack': 'Ata.Especial',
+  'special-defense': 'Def.Especial',
+  'speed': 'Velocidad'
+};
 
 // Esta función traduce el nombre de una estadística del inglés al español
 function traducirEstadistica(estadistica) {
-  switch (estadistica) {
-    case 'hp': return 'Vida';
-    case 'attack': return 'Ataque';
-    case 'defense': return 'Defensa';
-    case 'special-attack': return 'Ata.Especial';
-    case 'special-defense': return 'Def.Especial';
-    case 'speed': return 'Velocidad';
-    default: return estadistica;
-  }
+  return estadisticas[estadistica] || estadistica;
 }
+
+// Diccionario para traducir evoluciones especiales
+const evolucionesEspeciales = {
+  'oval-stone': 'Piedra Oval',
+  'moon-stone': 'Piedra Lunar',
+  'sun-stone': 'Piedra Solar',
+  'normal-gem': 'Gema Normal',
+  'super-gem': 'Gema Super',
+  'heart-scale': 'Escala Corazón',
+  'fire-stone': 'Piedra Fuego',
+  'thunder-stone': 'Piedra Rayo',        
+  'water-stone': 'Piedra Agua',        
+  'fire-stone': 'Piedra Fuego'
+};
 
 // Traduce el nombre del objeto o el método de evolución por amistad al español
 function traducirEvolucionEspecial(trigger, item) {
-  switch (trigger) {
-    case 'level-up': return `Evoluciona al nivel ${item}`;
-    case 'use-item':
-      switch (item) {
-        case 'oval-stone': return 'Evoluciona usando Piedra Oval';
-        case 'moon-stone': return 'Evoluciona usando Piedra Lunar';
-        case 'sun-stone': return 'Evoluciona usando Piedra Solar';
-        case 'normal-gem': return 'Evoluciona usando Gema Normal';
-        case 'super-gem': return 'Evoluciona usando Gema Super';
-        case 'heart-scale': return 'Evoluciona usando Escala Corazón';
-        case 'fire-stone': return 'Evoluciona usando Piedra Fuego';
-        case 'thunder-stone': return 'Evoluciona usando Piedra Rayo';        
-        case 'water-stone': return 'Evoluciona usando Piedra Agua';        
-        case 'fire-stone': return 'Evoluciona usando Piedra Fuego';   
-      
-        default: return item; // Mantener el nombre original si no está traducido
-      }
+  if (trigger === 'level-up') {
+    return `Evoluciona al nivel ${item}`;
+  } else if (trigger === 'use-item') {
+    return `Evoluciona usando ${evolucionesEspeciales[item] || item}`;
+  } else if (trigger === 'friendship') {
+    return 'Evoluciona con amistad';
+  } else if (trigger === 'trade') {
+    return 'Evoluciona en intercambio';
+  }
+  return item;
+}
+
+// El resto del código se mantiene igual...
+
     case 'friendship': return 'Evoluciona con amistad';
     case 'trade': return 'Evoluciona en intercambio';
     default: return item;
